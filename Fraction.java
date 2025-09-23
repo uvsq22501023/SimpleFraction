@@ -1,3 +1,6 @@
 public class Fraction {
-    // Classe vide pour le moment
+    @Override
+    public String toString() {
+        return "fraction ou qlq chose";
+    }
 }

@@ -1,5 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Début du programme Main");
+        Fraction f = new Fraction();
+        System.out.println(f.toString());
     }
 }
