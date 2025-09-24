@@ -34,6 +34,24 @@ public int getDenominateur() {
         this(0, 1); // Appelle le constructeur avec numérateur=0, dénominateur=1
     }
     
+
+
+    // question 5 pqrtie II : Méthode de consultation de la valeur en virgule flottante
+    public double doubleValue() {
+        return (double) numerateur / denominateur;
+    }
+
+
+
+// question 6 : Méthode d'addition de deux fractions
+public Fraction add(Fraction autre) {
+    int nouveauNum = this.numerateur * autre.denominateur + autre.numerateur * this.denominateur;
+    int nouveauDen = this.denominateur * autre.denominateur;
+    return new Fraction(nouveauNum, nouveauDen);
+}
+
+
+
     @Override
     public String toString() {
         return numerateur + "/" + denominateur;
