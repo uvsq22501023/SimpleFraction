@@ -45,5 +45,45 @@ public class Main {
         assert somme.toString().equals("5/6") : "Addition toString échoué";
         
         System.out.println("Tests addition passent !");
-    }
+
+
+ // Assertions pour tester l'égalité
+ Fraction f10 = new Fraction(1, 2);
+ Fraction f11 = new Fraction(1, 2);
+ Fraction f12 = new Fraction(2, 4); // égale à 1/2
+ Fraction f13 = new Fraction(1, 3); // différente
+ 
+ assert f10.equals(f11) : "Égalité 1/2 et 1/2 échouée";
+ assert f10.equals(f12) : "Égalité 1/2 et 2/4 échouée";
+ assert !f10.equals(f13) : "Différence 1/2 et 1/3 échouée";
+ 
+ System.out.println("Tests égalité passent !");
+
+
+// Assertions pour tester la comparaison
+Fraction f14 = new Fraction(1, 2);
+Fraction f15 = new Fraction(1, 3);
+Fraction f16 = new Fraction(2, 4); // égale à 1/2
+
+assert f14.compareTo(f15) > 0 : "1/2 > 1/3 échoué";
+assert f15.compareTo(f14) < 0 : "1/3 < 1/2 échoué";
+assert f14.compareTo(f16) == 0 : "1/2 = 2/4 échoué";
+
+System.out.println("Tests comparaison passent !");
+
+
+
+
+
+
+// Vérification avec le code de l'énoncé
+Number aNumber = java.math.BigDecimal.ONE;
+Number anotherNumber = new Fraction(1, 2);
+assert Math.abs(aNumber.doubleValue() + anotherNumber.doubleValue() - 1.5) < 1E-8;
+
+System.out.println("Test héritage Number passé !");
+System.out.println("=== TOUS LES TESTS PASSENT ===");
+}
+
+
 }

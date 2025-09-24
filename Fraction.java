@@ -1,5 +1,5 @@
 
-public class Fraction {
+public class Fraction extends Number implements Comparable<Fraction>{
     private int numerateur;
     private int denominateur;
     
@@ -49,6 +49,50 @@ public Fraction add(Fraction autre) {
     int nouveauDen = this.denominateur * autre.denominateur;
     return new Fraction(nouveauNum, nouveauDen);
 }
+
+
+ // question 7 : Test d'égalité entre fractions
+ @Override
+ public boolean equals(Object obj) {
+     if (this == obj) return true;
+     if (obj == null || getClass() != obj.getClass()) return false;
+     
+     Fraction autre = (Fraction) obj;
+     // Deux fractions sont égales si a/b = c/d ⇔ a*d = b*c
+     return this.numerateur * autre.denominateur == autre.numerateur * this.denominateur;
+ }
+
+
+
+
+
+
+// auestion 9 : Méthodes requises par Number
+@Override
+public int intValue() {
+    return numerateur / denominateur;
+}
+
+@Override
+public long longValue() {
+    return (long) numerateur / denominateur;
+}
+
+@Override
+public float floatValue() {
+    return (float) numerateur / denominateur;
+}
+
+
+
+
+
+ @Override
+ public int compareTo(Fraction autre) {
+     // a/b < c/d ⇔ a*d < b*c
+     int diff = this.numerateur * autre.denominateur - autre.numerateur * this.denominateur;
+     return Integer.compare(diff, 0);
+ }
 
 
 
